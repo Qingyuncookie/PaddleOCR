@@ -176,7 +176,7 @@ class RecConAug(object):
 
     def __call__(self, data):
         rnd_num = random.random()
-        if rnd_num > self.prob:
+        if rnd_num > self.prob or "ext_data" not in data:
             return data
         for idx, ext_data in enumerate(data["ext_data"]):
             if len(data["label"]) + len(ext_data["label"]) > self.max_text_length:
