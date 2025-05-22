@@ -80,7 +80,7 @@ class MakeBorderMap(object):
         padding = pyclipper.PyclipperOffset()
         padding.AddPath(subject, pyclipper.JT_ROUND, pyclipper.ET_CLOSEDPOLYGON)
         
-        if padding.Excute(distance) == 0:
+        if len(padding.Execute(distance)) == 0:
             return
         
         padded_polygon = np.array(padding.Execute(distance)[0])
